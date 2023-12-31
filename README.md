@@ -1,7 +1,7 @@
 # DISCORDNITRO_GX_GEN
 
 
-Gerador basico que gera links de nitro promocional sem precisar baixar o navegador opera gx
+Gerador basico que gera links de nitro promocional sem precisar baixar o navegador opera gx,
 Bom sabendo um pouco sobre requisições e get e post se consegue modificar ele pra proximas promoções do discord!
 BY:LEANDROTN
 
