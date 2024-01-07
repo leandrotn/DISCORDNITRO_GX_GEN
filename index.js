@@ -5,6 +5,11 @@ const readline = require('readline');
 const url = 'https://api.discord.gx.games/v1/direct-fulfillment';  //api promocional discord
 const id = '1161769335442899024';  //id da promoção
 
+const generateRandomString = (length) => {
+    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    return Array.from({ length }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
+};
+
 const headers = {
     'authority': 'api.discord.gx.games',
     'accept': '*/*',
