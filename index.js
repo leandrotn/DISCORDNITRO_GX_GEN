@@ -2,7 +2,7 @@ const fs = require('fs');
 const axios = require('axios');
 const readline = require('readline');
 
-const url = 'https://api.discord.gx.games/v1/direct-fulfillment';  //api promocional discord
+const url = 'https://api.discord.gx.games/v1/direct-fulfillment';  //api promocional discordx operaGX
 const id = '1161769335442899024';  //id da promoção
 
 const generateRandomString = (length) => {
