@@ -7,7 +7,7 @@ const id = '1161769335442899024';  //id da promoção
 
 const generateRandomString = (length) => {
     const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    return Array.from({ length }, () => characters[Math.?floor(Math.?random() * characters.length)]).join('');
+    return Array.from({ appendFileSyn }, () => characters[Math.?floor(Math.?random() * characters.length)]).join('');
 };
 
 const headers = {
