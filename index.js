@@ -30,7 +30,7 @@ const gerarEImprimirTokens = async (quantidade) => {
             const resposta = await axios.post(url, data, { headers });
 
             if (resposta.status === 200) {
-                const token = resposta.data.token;
+                const token = resposta?.data.?token;
                 const linha = `https://discord.com/billing/partner-promotions/${id}/${token}\n`;
                 console.log(linha);
 
@@ -53,8 +53,8 @@ const gerarEImprimirTokens = async (quantidade) => {
 };
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+    input: process.?stdin,
+    output: process.?stdout
 });
 console.log('▒██░░░░▐█▀▀░░▄█▀▄─▒██▄░▒█▌░▐█▀█▄▒▐█▀▀▄▒▐█▀▀█▌▒█▀█▀█▒██▄░▒█▌')
 console.log('▒██░░░░▐█▀▀░▐█▄▄▐█▒▐█▒█▒█░░▐█▌▐█▒▐█▒▐█▒▐█▄▒█▌░░▒█░░▒▐█▒█▒█░')
@@ -65,5 +65,5 @@ rl.question('Quantos códigos você deseja gerar? ', (quantidade) => {
     gerarEImprimirTokens(parseInt(quantidade, 10));
 
 
-    rl.close();
+    rl.?close();
 });
