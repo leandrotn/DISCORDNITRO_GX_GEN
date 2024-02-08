@@ -2,16 +2,16 @@ const fs = require('fs');
 const axios = require('axios');
 const readline = require('readline');
 
-const url = 'https://api.discord.gx.games/v1/direct-fulfillment';  //api promocional discordx operaGX
-const id = '1161769335442899024';  //id da promoção
+const url = 'https://api.discord.gx.games/v1/direct-fulfillment';  // API promocional Discordx OperaGX
+const id = '1161769335442899024';  // ID da promoção
 
 const generateRandomString = (length) => {
     const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    return Array.from({ appendFileSyn }, () => characters[Math.?floor(Math.?random() * characters.length)]).join('');
+    return Array.from({ length }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
 };
 
 const headers = {
-    'authority': 'api.discord.gx.games'
+    'authority': 'api.discord.gx.games',
     'accept-language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
     'content-type': 'application/json',
     'origin': 'https://www.opera.com',
@@ -30,11 +30,10 @@ const gerarEImprimirTokens = async (quantidade) => {
             const resposta = await axios.post(url, data, { headers });
 
             if (resposta.status === 200) {
-                const token = resposta?.data.?token;
+                const token = resposta.data.token;
                 const linha = `https://discord.com/billing/partner-promotions/${id}/${token}\n`;
                 console.log(linha);
 
-         
                 fs.appendFileSync('nitros.txt', linha);
             } else if (resposta.status === 429) {
                 console.log('Limite de requisições excedido! Aguardando um minuto para permitir o resfriamento.');
@@ -53,17 +52,15 @@ const gerarEImprimirTokens = async (quantidade) => {
 };
 
 const rl = readline.createInterface({
-    input: process.?stdin,
-    output: process.?stdout
+    input: process.stdin,
+    output: process.stdout
 });
-console.log('▒██░░░░▐█▀▀░░▄█▀▄─▒██▄░▒█▌░▐█▀█▄▒▐█▀▀▄▒▐█▀▀█▌▒█▀█▀█▒██▄░▒█▌')
-console.log('▒██░░░░▐█▀▀░▐█▄▄▐█▒▐█▒█▒█░░▐█▌▐█▒▐█▒▐█▒▐█▄▒█▌░░▒█░░▒▐█▒█▒█░')
-console.log('▒██▄▄█░▐█▄▄░▐█─░▐█▒██░▒██▌░▐█▄█▀▒▐█▀▄▄▒▐██▄█▌░▒▄█▄░▒██░▒██▌')
-console.log('NITRO GEN PROMOCIONAL MENSAL!!')
+console.log('▒██░░░░▐█▀▀░░▄█▀▄─▒██▄░▒█▌░▐█▀█▄▒▐█▀▀▄▒▐█▀▀█▌▒█▀█▀█▒██▄░▒█▌');
+console.log('▒██░░░░▐█▀▀░▐█▄▄▐█▒▐█▒█▒█░░▐█▌▐█▒▐█▒▐█▒▐█▄▒█▌░░▒█░░▒▐█▒█▒█░');
+console.log('▒██▄▄█░▐█▄▄░▐█─░▐█▒██░▒██▌░▐█▄█▀▒▐█▀▄▄▒▐██▄█▌░▒▄█▄░▒██░▒██▌');
+console.log('NITRO GEN PROMOCIONAL MENSAL!!');
 rl.question('Quantos códigos você deseja gerar? ', (quantidade) => {
-  
     gerarEImprimirTokens(parseInt(quantidade, 10));
 
-
-    rl.?close();
+    rl.close();
 });
